@@ -20,6 +20,7 @@
       content: "",
       maxWidth: 85,
       minWidth: 85,
+      zIndex: 9999,
       overlay: true
     }
 
@@ -42,11 +43,13 @@
     this.modal.addEventListener(this.transitionEnd, function() {
       _.modal.parentNode.removeChild(_.modal);
     });
+   
     this.overlay.addEventListener(this.transitionEnd, function() {
       if(_.overlay.parentNode) _.overlay.parentNode.removeChild(_.overlay);
     });
     $('body').css('overflow-x', 'hidden');
     $('body').css('overflow-y', 'scroll');
+
   }
 
   Modal.prototype.open = function() {
@@ -58,6 +61,8 @@
         " js-modal-open js-modal-anchored" : " js-modal-open");
     this.overlay.className = this.overlay.className + " js-modal-open";
     	$('body').css('overflow', 'hidden');
+      
+
   }
 
   // Private Methods
@@ -85,6 +90,7 @@
     this.modal.className = "js-modal-modal " + this.options.className;
     this.modal.style.minWidth = this.options.minWidth + "%";
     this.modal.style.maxWidth = this.options.maxWidth + "%";
+    this.modal.style.zIndex = this.options.zIndex;
 
     // If closeButton option is true, add a close button
     if (this.options.closeButton === true) {
