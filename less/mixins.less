@@ -20,7 +20,7 @@
   float: left;
   padding: 0.3em;
   text-align: left;
-  border-bottom: 1px solid @border-color;
+  border-bottom: @border-style;
   }
 
 .grid-fix{
@@ -76,8 +76,7 @@
   width: 25%; }
 
 .col-30{
-  width: 30%;
-}
+  width: 30%; }
 
 .col-35 {
   width: 35%; }  
@@ -90,9 +89,11 @@
 
 .col-70 {
   width: 70%; }
-  
+
 .col-75 {
   width: 75%; }
+
+
 
 @media (max-width: 30em) {
   .col-1 {

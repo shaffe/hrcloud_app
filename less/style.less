@@ -87,7 +87,7 @@ header{
 	p {
 		color: @color-text;
 		font-family: @font1;
-		font-size:1.00em;
+		font-size:0.95em;
 		font-weight:400;
 	}
 }
@@ -445,9 +445,8 @@ footer {
 .modal-header{
 	
 	background-color: @headerbg;
-	top:0;
-
-	min-height: 33%;
+	
+	height:300px;
 	width:100%;
 
 		button {
@@ -484,6 +483,7 @@ footer {
 		color:@modal-p;
 		font-family:@font2;
 		font-size:1.6em;
+		text-align:left;
 	}
 
 	h2{
@@ -491,6 +491,7 @@ footer {
 		font-family:@font2;
 		font-size:3em;
 		font-weight:400;
+		text-align:left;
 
 	}
 	.modal-social {
@@ -509,6 +510,16 @@ footer {
 
 .modal-content{
 	
+	width:100%;
+	
+	
+}
+
+.general-info, .about-info {
+	
+	width:100%;
+	
+
 	font-family: @font2;
 	
 	padding: 20px 60px;
@@ -526,18 +537,18 @@ footer {
 			margin: 5px 0;
 		}
 
-		p{
-			font-size: 0.9em;
+		p{	
+			font-family: @font1;
+			font-size: 1em;
 			color:@modal-content-p;
 			text-align:justify;
 			margin: 5px 0;
 		}
+
 }
 
 .about-info{
-
-	border-top:1px solid @border-color;
-	padding: 40px 0 0;
+	border-top:@border-style;
 }
 
 .article-social{
