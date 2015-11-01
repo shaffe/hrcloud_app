@@ -41,6 +41,7 @@ header{
 
 	span {
 		color: @color-h1;
+		font-size:2em;
 
 }
 
@@ -86,6 +87,8 @@ header{
 		font-size:0.95em;
 		font-weight:400;
 	}
+
+	
 }
 
 // profile picture
@@ -200,14 +203,12 @@ footer {
 		  	}
 			
 			.disabled {
-				
 				color: rgba(46, 64, 87, 0.2);
 				pointer-events: none;
 				border:1px solid rgba(46, 64, 87, 0.2);
 				}
 
 		  	span{
-		  		
 		  		color:@color-text;
 			  	display: inline;
 				text-decoration:none;
@@ -220,7 +221,6 @@ footer {
 			 	border:none;
 			  	font-size: 0.8em;
 			  	font-weight:700;
-
 		  	}
 
 		  	.current {
@@ -250,45 +250,7 @@ footer {
 }
 
 
-// font icons
 
-.icon-arrow-left:before {
-  content: "a";
-  margin-right: 10px;
-  font-size: 0.8em;
-} 
-.icon-arrow-right:before {
-  content: "b";
-  margin-left: 10px;
-  font-size: 0.8em;
-}
-.icon-google-plus:before {
-  content: "c";
-  font-size: 1.3em;
-  color: @wbackground;
-}
-.icon-linked-in:before {
-  content: "d";
-  font-size: 1.3em;
-  
-  color: @wbackground;
-}
-.icon-phone-book:before {
-  content: "e";
-  font-size: 2em;
-  vertical-align:middle;
-  
-}
-.icon-twitter:before {
-  content: "f";
-  font-size: 1.3em;
-  color: @wbackground;
-}
-.icon-yammer:before {
-  content: "g";
-  font-size: 1.3em;
-  color: @wbackground;
-}
 
 
 
@@ -296,13 +258,10 @@ footer {
 .js-modal-overlay{
     
     position: fixed;
-
     z-index: 9998;
     top: 0;
     left: 0;
-
     opacity: 0;
-
     width: 100%;
     height: 100vh;
 
@@ -456,39 +415,40 @@ footer {
 			border:1px solid #fff;
 			border-radius: 5px;
 			padding: 8px 14px 8px 13px;
-			right: 10px;
-			top: 5px;
+			margin: 10px 40px 0 0;
 			color: @color-h1;
 			background-color: @headerbg;
 			font-family: @font2;
 			font-size: 0.9em;
 			font-weight:400;
+			float:right;
+			padding-top:-50px;
+			
 		}
 }
-
 .profile-picture-modal {
-			
-			width:50%;
-		    height:50%;
-		  	border-radius:50%;
-		  	border:5px solid @wbackground;
+		
+		width:200px;
+		height:200px;
+		border-radius:50%;
+		border:5px solid @wbackground;
+		
+	}
 
-		  	margin-left:50px;
-}
+.modal-heading-info{
+		
 
-.modal-heading{
-	
 	p {
 		color:@modal-p;
 		font-family:@font2;
-		font-size:1.6em;
+		font-size:1.4em;
 		text-align:left;
 	}
 
 	h2{
 		color:@color-h1;
 		font-family:@font2;
-		font-size:3em;
+		font-size:2.5em;
 		font-weight:400;
 		text-align:left;
 
@@ -502,7 +462,9 @@ footer {
 			display: inline-block;
 			margin-right:25px;
 			line-height:2.5em;
+			font-size: 1.2em;
 			vertical-align:middle;
+			color: @wbackground;
 		} 
     }
 }
@@ -527,7 +489,7 @@ footer {
 .modal-content{
 	
 	display: inline-block;
-	height: calc(100vh - 300px);
+	height: calc(~"100vh - 300px");
 	
 
 	
@@ -553,6 +515,13 @@ footer {
 			margin: 5px 0;
 		}
 
+		h3{
+			font-size:0.9em;
+			color:@modal-content-h3;
+			margin: 10px 0;
+
+		}
+
 		p{	
 			font-family: @font1;
 			font-size: 1em;
@@ -572,7 +541,9 @@ footer {
 	width:350px;
 	float:left;
 	display: inline-block;
-	height: calc(100vh - 300px);
+	height: calc(~"100vh - 300px");
+	overflow-y:scroll;
+	
 }
 
 .article-social{
@@ -583,6 +554,7 @@ footer {
 	padding: 10px 20px;
 	background-color:@article-social-bckg;
 	overflow-y:hidden;
+	border-left: @border-style2;
 	
 	.social{
 		
@@ -591,6 +563,7 @@ footer {
 		height:auto;
 		background-color:@wbackground;
 		border-radius: @borderr5;
+		border: 1px solid #E8E7E6;
 		padding:25px;
 		margin: 10px 0;
 
@@ -598,8 +571,8 @@ footer {
 			
 			display:block;
 			width:96%;
-			height:96%;
-			margin: 10px auto;
+			height:100%;
+			margin: 20px auto;
 			
 		}
 
@@ -607,6 +580,7 @@ footer {
 			font-family: @font1;
 			font-size: 1em;
 			color: @color-p-article;
+			line-height: 1.2em;
 			
 			
 			.blue{
@@ -617,8 +591,11 @@ footer {
 			.publish{
 				color: @color-publish-article;
 				font-size:0.9em;
+				line-height:1em;
 				margin-top:10px;
+				
 				}
+
 		}
 	}
 
@@ -637,3 +614,6 @@ footer {
 	}
 }
 
+@media (max-width: 50em) {
+	
+}
