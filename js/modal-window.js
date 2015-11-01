@@ -15,7 +15,6 @@
     // Define option defaults 
     var defaults = {
       autoOpen: false,
-      className: 'fade-and-slideright',
       closeButton: false,
       content: "",
       maxWidth: 85,
@@ -37,9 +36,9 @@
 
   Modal.prototype.close = function() {
     var _ = this;
-    this.modal.className = this.modal.className.replace("js-modal-open", "");
+    this.modal.className = this.modal.className.replace("js-modal-open", "js-modal-closed");
     this.overlay.className = this.overlay.className.replace("js-modal-open",
-      "");
+      "js-modal-closed");
     this.modal.addEventListener(this.transitionEnd, function() {
       _.modal.parentNode.removeChild(_.modal);
     });
@@ -64,7 +63,7 @@
       
 
   }
-
+  
   // Private Methods
 
   function buildOut() {
@@ -166,3 +165,7 @@ for(var i = 0; i < triggerButtons.length; i++) {
     });
 }
 
+
+$('a.trigger.frame').click(function() {
+     return false; // prevent default click action from happening!
+});

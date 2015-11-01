@@ -37,11 +37,9 @@ header{
 		font-weight:400;
 
 		line-height:1.5em;
-
 		}
 
 	span {
-
 		color: @color-h1;
 
 }
@@ -60,9 +58,7 @@ header{
 		font-family: @font2;
 		font-size: 0.9em;
 		font-weight:400;
-		
-		
-	}
+		}
 }
 
 
@@ -308,7 +304,7 @@ footer {
     opacity: 0;
 
     width: 100%;
-    height: 100%;
+    height: 100vh;
 
     -webkit-transition: 1ms opacity ease;
        -moz-transition: 1ms opacity ease;
@@ -322,6 +318,7 @@ footer {
 .js-modal-modal{
     
 	position:fixed;    
+	display:inline-block;
 
     top: 0;
     right:0;
@@ -329,7 +326,7 @@ footer {
     opacity: 0;
 
     width: 75%;
-    min-height: 100%;
+    min-height: 100vh;
 
     -webkit-transition: 1ms opacity ease-in;
        -moz-transition: 1ms opacity ease-in;
@@ -354,10 +351,8 @@ footer {
 }
 
 // Modal animation from right to left
-.js-modal-modal.fade-and-slideright.js-modal-open{
+.js-modal-modal.js-modal-open{
     
-    right: 0;
-
     -webkit-animation: modal-animation 1s; /* Safari 4+ */
 	-moz-animation:    modal-animation 1s; /* Fx 5+ */
 	-o-animation:      modal-animation 1s; /* Opera 12+ */
@@ -367,19 +362,19 @@ footer {
 		  
 		  0% {
 		    opacity: 1;
-		    transform: translate(100%, 0);
-		  }
+		    right: -100%;
+		    }
 		  25% {
-		    transform: translate(100%, 0);
+		    right: -100%;
 		  }
 		  100% {
-		  	transform: translate(0, 0);
+		  	right: 0;
 		  }
 	}
 }
 
 //Modal overlay animation
-.js-modal-overlay.fade-and-slideright.js-modal-open{
+.js-modal-overlay.js-modal-open{
     
     right: 0;
 
@@ -391,12 +386,23 @@ footer {
 
     opacity: 1;
 }
+.js-modal-overlay.js-modal-closed{
+    
+    right: 0;
+
+    -webkit-transition: 500ms opacity ease;
+       -moz-transition: 500ms opacity ease;
+        -ms-transition: 500ms opacity ease;
+         -o-transition: 500ms opacity ease;
+            transition: 500ms opacity ease;
+
+    opacity: 0;
+}
+
 
 //Modal closing animation
-.js-modal-modal.fade-and-slideright{
+.js-modal-modal.js-modal-closed{
    
-   	right:0;
-
 	-webkit-animation: modal-animation-close 1s; /* Safari 4+ */
 	-moz-animation:    modal-animation-close 1s; /* Fx 5+ */
 	-o-animation:      modal-animation-close 1s; /* Opera 12+ */
@@ -406,19 +412,19 @@ footer {
 		  
 		  0% {
 		    opacity: 1;
-		    
-		    transform: translate(0, 0);
+		    right:0;
 		  }
 		   25% {
-		    transform: translate(0, 0);
+		    right:0;
 		  }
 		  
 		  100% {
 		  	opacity: 1;
-		  	transform: translate(100%, 0);
+		  	right:-100%;
 		  }
 		
 	}
+	right:-100% !important;
 
 }
 
@@ -435,10 +441,7 @@ footer {
 #content{
     display: none;
     position: relative;
-
 }
-
-
 
 // Modal style
 
@@ -452,15 +455,11 @@ footer {
 		button {
 			border:1px solid #fff;
 			border-radius: 5px;
-			
 			padding: 8px 14px 8px 13px;
-			
 			right: 10px;
 			top: 5px;
-
 			color: @color-h1;
 			background-color: @headerbg;
-
 			font-family: @font2;
 			font-size: 0.9em;
 			font-weight:400;
@@ -508,20 +507,37 @@ footer {
     }
 }
 
+.modal-content-wrapper{
+	
+	display:inline-block;
+
+		
+	}
+
+.modal-content-container{
+	
+	display: inline-block;
+	overflow-y:scroll;
+	margin-right:-350px;
+	padding-right: 350px;
+	
+
+}
+
 .modal-content{
 	
-	width:100%;
+	display: inline-block;
+	height: calc(100vh - 300px);
 	
+
 	
 }
 
 .general-info, .about-info {
 	
 	width:100%;
-	
-
+	display:inline-block;
 	font-family: @font2;
-	
 	padding: 20px 60px;
 	margin:0px;
 
@@ -551,51 +567,73 @@ footer {
 	border-top:@border-style;
 }
 
+
+.fixed-social-box{
+	width:350px;
+	float:left;
+	display: inline-block;
+	height: calc(100vh - 300px);
+}
+
 .article-social{
 	
 	font-family: @font1;
 	min-height:100%;
 	width:100%;
-	
 	padding: 10px 20px;
-
 	background-color:@article-social-bckg;
-
 	overflow-y:hidden;
 	
-
 	.social{
 		
 		font-family: @font1;
-
 		width:100%;
 		height:auto;
-
 		background-color:@wbackground;
 		border-radius: @borderr5;
-
-		padding:10px;
+		padding:25px;
 		margin: 10px 0;
 
 		img {
 			
-			width:100%;
-			height:100%;
-
+			display:block;
+			width:96%;
+			height:96%;
+			margin: 10px auto;
+			
 		}
 
 		p{
-
 			font-family: @font1;
 			font-size: 1em;
-
 			color: @color-p-article;
-			margin:10px;
 			
-			span{
-				color: @color-span-article;
-			}	
+			
+			.blue{
+				color: @color-blue-article;
+				margin:0;
+				}
+			
+			.publish{
+				color: @color-publish-article;
+				font-size:0.9em;
+				margin-top:10px;
+				}
 		}
+	}
+
+	button{
+		font-family:@font2;
+		font-size:0.7em;
+		letter-spacing:2px;
+		padding: 10px 15px;
+		margin: 10px auto;
+		text-transform:uppercase;
+		background-color: #549BCC;
+		color: #fff;
+		border-radius: @borderr5;
+		border:none;
+		display:block;
 	}
 }
 
