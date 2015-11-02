@@ -13,6 +13,7 @@ body {
 
 }
 
+// header - address-book
 header{
 	
 	width:100%;
@@ -25,44 +26,40 @@ header{
 	z-index:2;
 	
 	h1	{
-
+		
 		color: @color-h1;
 		height:100%;
 		display: inline-block;
 		vertical-align:middle;
 		margin-left:25px;
-
 		font-family: @font2;
 		font-size: 2em;
 		font-weight:400;
-
 		line-height:1.5em;
 		}
 
 	span {
+		
 		color: @color-h1;
 		font-size:2em;
-
 }
 
 	button {
 		
 		border:1px solid #fff;
 		border-radius: 5px;
-		
 		padding: 8px 14px 8px 13px;
-		
 		float: right;
 		color: @color-h1;
 		background-color: @headerbg;
-
 		font-family: @font2;
 		font-size: 0.9em;
 		font-weight:400;
+
 		}
 }
 
-
+// main content section - address-book
 #address-book {
 	
 	min-height: 100%;
@@ -75,7 +72,6 @@ header{
 	h2 {
 		display:inline-block;
 		color: @color-text;
-
 		font-family: @font2;
 		font-size:1.00em;
 		font-weight:700;
@@ -92,47 +88,38 @@ header{
 }
 
 // profile picture
-
 .profile-picture{
 	max-width:35px;
     height:35px;
   	border-radius:50%;
-	//vertical aligment for pictures
-	text-align: center;
-    position: relative;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+	.v-center-content;
     z-index:1;
 
 }
 
+// profile picture - container
 .img-box{
 	height:66px;
 	float:left;
 	width:110px;
 	text-align:right;
-	padding-right: 1%;
+	padding-right: 15px;
 	border-top: 1px solid #f1f1ef;
 }
 
+// profile picture - container - borderfix
 .img-box.last {
 	border-bottom: 1px solid #f1f1ef;
 }
 
+// profile picture - container - margin fix becasue of fixed position to the left so that grid can strech 
 .info-box {
 	margin-left:110px;
 	max-width:100%;
 }
 
 
-//footer
-
-.push{
-	height:100px;
-}
-
+//footer 
 footer {
 	position:fixed;
 	bottom:0;
@@ -145,23 +132,26 @@ footer {
 	
 	p{
 		font-family: @font1;
-		color:@color-text;
+		color:#95928E;
 		text-align:right;
 
 	}
 
 }
 
-// pagination
+//sticky footer solution
+.push{
+	height:100px;
+}
 
+
+// pagination
 .pagination{
 	
 	text-align: center;
 
-
 	.hr-pagination{
 		width: 100%;
-		display:flex;
 		padding: 10px 0;
 		margin:0;
 	  	text-align: center;
@@ -174,7 +164,7 @@ footer {
 				display: inline-block;
 				float:left;
 				margin:0;
-				font-size: 12px;
+				font-size: 14px;
 				font-family: @font1;
  			}
 
@@ -182,13 +172,20 @@ footer {
 				display: inline;
 				margin:0 15px;
 				border-radius: 5px;
-		  	}
-			
+
+			}
+
+			li.single-pagination a{
+					border-radius: 5px;
+					padding: 6px 8px;
+
+				}
+	
 			a {
 				color:@color-text;
 				margin:0;
 				display: inline;
-				padding: 8px 13px;
+				padding: 6px 12px;
 			 	border: 1px solid @pagination-color1;
 			 	text-decoration:none;
 				-webkit-user-select: none;
@@ -241,6 +238,7 @@ footer {
 				border-radius: 0 5px 5px 0;
 			}
 
+			//whitespace fix
 			.nospace{
 				content: "";
 			  	display: table;
@@ -248,11 +246,6 @@ footer {
 			 	width: auto;
 		  }
 }
-
-
-
-
-
 
 /* Modal Base CSS */
 .js-modal-overlay{
@@ -275,15 +268,12 @@ footer {
 }
 
 .js-modal-modal{
-    
+
 	position:fixed;    
 	display:inline-block;
-
     top: 0;
     right:0;
-
     opacity: 0;
-
     width: 75%;
     min-height: 100vh;
 
@@ -302,13 +292,6 @@ footer {
 }
 
 /* Default Animation */
-
-.js-modal-overlay.fade-and-slideright{
-   
-    display: block;
-    opacity: 0;
-}
-
 // Modal animation from right to left
 .js-modal-modal.js-modal-open{
     
@@ -332,9 +315,8 @@ footer {
 	}
 }
 
-//Modal overlay animation
+//Modal overlay animation opacity change when opening
 .js-modal-overlay.js-modal-open{
-    
     right: 0;
 
     -webkit-transition: 500ms opacity ease;
@@ -345,6 +327,8 @@ footer {
 
     opacity: 1;
 }
+
+//Modal overlay animation opacity change when closing
 .js-modal-overlay.js-modal-closed{
     
     right: 0;
@@ -357,7 +341,6 @@ footer {
 
     opacity: 0;
 }
-
 
 //Modal closing animation
 .js-modal-modal.js-modal-closed{
@@ -381,20 +364,12 @@ footer {
 		  	opacity: 1;
 		  	right:-100%;
 		  }
-		
 	}
 	right:-100% !important;
-
 }
 
-//Modal overlay opacity
-.js-modal-overlay.fade-and-slideright{
-	
-    -webkit-transition: 500ms opacity 500ms ease;
-       -moz-transition: 500ms opacity 500ms ease;
-        -ms-transition: 500ms opacity 500ms ease;
-         -o-transition: 500ms opacity 500ms ease;
-            transition: 500ms opacity 500ms ease;
+.close-button{
+	display:none;
 }
 
 #content{
@@ -404,6 +379,7 @@ footer {
 
 // Modal style
 
+//Modal header
 .modal-header{
 	
 	background-color: @headerbg;
@@ -411,7 +387,7 @@ footer {
 	height:300px;
 	width:100%;
 
-		button {
+		.button-desktop {
 			border:1px solid #fff;
 			border-radius: 5px;
 			padding: 8px 14px 8px 13px;
@@ -422,33 +398,38 @@ footer {
 			font-size: 0.9em;
 			font-weight:400;
 			float:right;
-			padding-top:-50px;
-			
+		}
+
+		.button-mobile{
+			display:none;
+
 		}
 }
+
 .profile-picture-modal {
 		
-		width:200px;
-		height:200px;
+		width:70%;
+		height:70%;
 		border-radius:50%;
 		border:5px solid @wbackground;
-		
+		margin-left: 15%;
+
 	}
 
-.modal-heading-info{
-		
 
+.modal-heading-info{
+		margin-top:20px;
 	p {
 		color:@modal-p;
 		font-family:@font2;
-		font-size:1.4em;
+		font-size:1.3em;
 		text-align:left;
 	}
 
 	h2{
 		color:@color-h1;
 		font-family:@font2;
-		font-size:2.5em;
+		font-size:2.4em;
 		font-weight:400;
 		text-align:left;
 
@@ -462,38 +443,39 @@ footer {
 			display: inline-block;
 			margin-right:25px;
 			line-height:2.5em;
-			font-size: 1.2em;
+			font-size: 1.3em;
 			vertical-align:middle;
 			color: @wbackground;
 		} 
     }
 }
 
-.modal-content-wrapper{
+//modal-content-wrapper wrapping whole modal content container giving inline-block style for heigh reasons
+#modal-content-wrapper{
 	
 	display:inline-block;
-
-		
+	
 	}
 
-.modal-content-container{
+//solution for giving the grid negative margin for the reasons of fixed social column on the right
+#modal-content-container{
 	
 	display: inline-block;
 	overflow-y:scroll;
-	margin-right:-350px;
+	margin-right: -350px;
 	padding-right: 350px;
-	
-
+	height: calc(~"100vh - 300px");
 }
 
+//main content container
 .modal-content{
 	
 	display: inline-block;
+	margin-right: -350px;
+	padding-right: 350px;
 	height: calc(~"100vh - 300px");
-	
-
-	
 }
+
 
 .general-info, .about-info {
 	
@@ -537,12 +519,14 @@ footer {
 }
 
 
-.fixed-social-box{
+//fixed social box container on the right independable scroll
+#fixed-social-box{
 	width:350px;
 	float:left;
 	display: inline-block;
 	height: calc(~"100vh - 300px");
 	overflow-y:scroll;
+	padding:0;
 	
 }
 
@@ -581,22 +565,30 @@ footer {
 			font-size: 1em;
 			color: @color-p-article;
 			line-height: 1.2em;
-			
-			
+			margin-bottom:10px;
+
 			.blue{
 				color: @color-blue-article;
 				margin:0;
 				}
-			
-			.publish{
+		}	
+
+		.publish{
 				color: @color-publish-article;
 				font-size:0.9em;
-				line-height:1em;
-				margin-top:10px;
+				line-height:0.8em;
+				margin:10px 0 0 10px;
+				display:inline;
 				
 				}
 
-		}
+		[class*='icon-']{
+			color: @color-publish-article;
+			font-size:0.8em;
+			line-height:1em;
+			margin-left:5px;
+			
+		}		
 	}
 
 	button{
@@ -604,7 +596,7 @@ footer {
 		font-size:0.7em;
 		letter-spacing:2px;
 		padding: 10px 15px;
-		margin: 10px auto;
+		margin: 30px auto;
 		text-transform:uppercase;
 		background-color: #549BCC;
 		color: #fff;
@@ -614,6 +606,609 @@ footer {
 	}
 }
 
-@media (max-width: 50em) {
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 0px) and (max-width: 800px) {
 	
+	// header style
+	header{
+		
+		width:100%;
+		position:fixed;
+		top:0;
+		letter-spacing: 1px;
+	    height: 90px;
+	    padding: 15px 2.5%;
+		background-color: @headerbg;
+		z-index:2;
+		
+		h1	{
+			
+			color: @color-h1;
+			height:100%;
+			display: inline-block;
+			vertical-align:middle;
+			
+			font-family: @font2;
+			font-size: 1.3em;
+			font-weight:400;
+			line-height:1.5em;
+			}
+
+		span {
+			
+			color: @color-h1;
+			font-size:1.3em;
+			margin-left:20px;
+	}
+
+		button {
+			border:1px solid #fff;
+			border-radius: 5px;
+			padding: 8px 14px 8px 13px;
+			color: @color-h1;
+			background-color: @headerbg;
+			font-family: @font2;
+			font-size: 0.9em;
+			font-weight:400;
+			}
+	}
+
+
+	// main content section - address-book
+	#address-book {
+		
+		min-height: 100%;
+		height: auto !important;
+		height: 100%;
+		margin: 80px auto -100px; 
+		padding-top:20px;
+		width:100%;
+
+		h2 {
+			display:inline-block;
+			color: @color-text;
+			font-family: @font2;
+			font-size:0.9em;
+			font-weight:700;
+		}
+
+		p {
+			color: @color-text;
+			font-family: @font1;
+			font-size:0.85em;
+			font-weight:400;
+		}
+
+		a {
+			display:block;
+		}
+
+		
+	}
+
+	// profile picture
+	.profile-picture{
+		max-width:35px;
+	    height:35px;
+	  	border-radius:50%;
+		//vertical aligment for pictures -fix
+		text-align: center;
+	    position: relative;
+	    top: 50%;
+	    -ms-transform: translateY(-50%);
+	    -webkit-transform: translateY(-50%);
+	    transform: translateY(-50%);
+	    z-index:1;
+	}
+
+	//adress-bar row
+	.info-box.heading{
+		display:none;
+	}
+
+	.info-box{
+		margin-left:80px;
+	}
+
+	.img-box{
+		height:50px;
+		float:left;
+		width:60px;
+		text-align:right;
+		padding-right: 15px;
+		border-top: none;
+	}
+
+	// profile picture - container - borderfix
+	.img-box.last {
+		border-bottom: none;
+	}
+ 
+	.mobile-row{
+		padding: 20px;
+		margin: 10px;
+		border: @border-style;
+	}
+
+	.noshow-mobile{
+		display:none;
+	}
+
+	//footer 
+	footer {
+		position:fixed;
+		bottom:0;
+		left:0;
+		height:100px;
+		width:100%;
+		padding: 20px 2.5% 0;
+		background-color: @wbackground;
+		z-index:3;
+		
+		p{
+			display:none;
+		}
+
+	}
+
+	//sticky footer solution
+	.push{
+		height:100px;
+	}
+
+	// pagination
+	.pagination{
+		
+		text-align: center;
+
+		.hr-pagination{
+			width: 100%;
+			padding: 10px 0;
+			text-align: center;
+		  	list-style: none;
+		  	color:@pagination-fontc;
+		  	font-family: @font1;
+		  	font-size: 0;
+		
+				li{
+					display: inline-block;
+					margin:0;
+					float:none;
+					font-size: 12px;
+					font-family: @font1;
+
+					span {
+					display:none;
+				    }
+	 			}
+
+	 			li.button a{
+					display: inline;
+					margin:0 15px;
+					border-radius: 5px;
+			  	}
+
+			  	li.single-pagination a{
+					display:none;
+
+				}
+
+				a {
+			 				
+ 				&:hover{
+ 					visibility:hidden;
+ 				}
+
+ 				&:focus {
+ 					background-color:@pagination-color1;
+					color: @wbackground;
+					padding: 6px 12px;
+			 		border: 1px solid @pagination-color1;
+ 				}
+		  	}
+				
+				.disabled {
+					color: rgba(46, 64, 87, 0.2);
+					pointer-events: none;
+					border:1px solid rgba(46, 64, 87, 0.2);
+					}
+		
+				.border{
+					display:none;
+				}
+		}
+	}
+
+	/* Modal - base CSS */
+	.js-modal-overlay{
+	    
+	    position: fixed;
+	    z-index: 9998;
+	    top: 0;
+	    left: 0;
+	    opacity: 0;
+	    width: 100%;
+	    height: 100vh;
+
+	    -webkit-transition: 1ms opacity ease;
+	       -moz-transition: 1ms opacity ease;
+	        -ms-transition: 1ms opacity ease;
+	         -o-transition: 1ms opacity ease;
+	            transition: 1ms opacity ease;
+
+	    background: rgba(0,0,0,.6);
+	}
+
+	.js-modal-modal{
+
+		position:fixed;    
+		display:inline-block;
+	    top: 0;
+	    right:0;
+	    opacity: 0;
+	    width: 100%;
+	    min-height: 100vh;
+
+	    -webkit-transition: 1ms opacity ease-in;
+	       -moz-transition: 1ms opacity ease-in;
+	        -ms-transition: 1ms opacity ease-in;
+	         -o-transition: 1ms opacity ease-in;
+	            transition: 1ms opacity ease-in;
+	  
+	    background: #fff;
+	}
+
+	.js-modal-modal.js-modal-open, .js-modal-overlay.js-modal-open{
+	    
+	    opacity: 1;
+	}
+
+	/* Default Animation */
+	// Modal animation from right to left
+	.js-modal-modal.js-modal-open{
+	    
+	    -webkit-animation: modal-animation 1s; /* Safari 4+ */
+		-moz-animation:    modal-animation 1s; /* Fx 5+ */
+		-o-animation:      modal-animation 1s; /* Opera 12+ */
+		animation:         modal-animation 1s; /* IE 10+, Fx 29+ */
+
+	    @keyframes modal-animation{
+			  
+			  0% {
+			    opacity: 1;
+			    right: -100%;
+			    }
+			  25% {
+			    right: -100%;
+			  }
+			  100% {
+			  	right: 0;
+			  }
+		}
+	}
+
+	//Modal overlay animation opacity change when opening
+	.js-modal-overlay.js-modal-open{
+	    right: 0;
+
+	    -webkit-transition: 500ms opacity ease;
+	       -moz-transition: 500ms opacity ease;
+	        -ms-transition: 500ms opacity ease;
+	         -o-transition: 500ms opacity ease;
+	            transition: 500ms opacity ease;
+
+	    opacity: 1;
+	}
+
+	//Modal overlay animation opacity change when closing
+	.js-modal-overlay.js-modal-closed{
+	    
+	    right: 0;
+
+	    -webkit-transition: 500ms opacity ease;
+	       -moz-transition: 500ms opacity ease;
+	        -ms-transition: 500ms opacity ease;
+	         -o-transition: 500ms opacity ease;
+	            transition: 500ms opacity ease;
+
+	    opacity: 0;
+	}
+
+	//Modal closing animation
+	.js-modal-modal.js-modal-closed{
+	   
+		-webkit-animation: modal-animation-close 1s; /* Safari 4+ */
+		-moz-animation:    modal-animation-close 1s; /* Fx 5+ */
+		-o-animation:      modal-animation-close 1s; /* Opera 12+ */
+		animation:         modal-animation-close 1s; /* IE 10+, Fx 29+ */
+
+	    @keyframes modal-animation-close{
+			  
+			  0% {
+			    opacity: 1;
+			    right:0;
+			  }
+			   25% {
+			    right:0;
+			  }
+			  
+			  100% {
+			  	opacity: 1;
+			  	right:-100%;
+			  }
+		}
+		right:-100% !important;
+	}
+
+	.js-modal-close.close-button{
+		padding: 5px 10px;
+		display:block;
+		background-color: @headerbg;
+		position:absolute;
+		top:5px;
+		left:5px;
+		border-radius:50%;
+		border:1px solid #fff;
+		color:#fff;
+		z-index:9999;
+		
+
+	}
+
+	#content{
+	    display: none;
+	    position: relative;
+	}
+
+	// Modal style
+
+	//Modal header
+	.modal-header{
+		
+		background-color: @headerbg;
+		
+		height:200px;
+		width:100%;
+
+
+			.button-desktop {
+				display:none;
+			}
+
+			.button-mobile{
+				position:absolute;
+				right: 10px;
+				top: 15px;
+				border:1px solid #fff;
+				border-radius: 5px;
+				padding: 8px 14px 8px 13px;
+				color: @color-h1;
+				background-color: @headerbg;
+				font-family: @font2;
+				font-size: 0.9em;
+				font-weight:400;
+				display:inline-block;
+
+			}
+	}
+
+	.v-center-content{
+		position:static;
+		top:0;
+		-webkit-transform: translateY(0);
+ 		-ms-transform: translateY(0);
+ 		transform: translateY(0);
+	}
+
+	.profile-picture-modal {
+			
+			width:60px;
+			height:60px;
+			border-radius:50%;
+			border:3px solid @wbackground;
+			margin-left: 41%;
+		}
+
+
+	.modal-heading-info{
+			
+			text-align:center;
+
+		p {
+			color:@modal-p;
+			font-family:@font2;
+			font-size:0.8em;
+			text-align:center;
+		}
+
+		h2{
+			color:@color-h1;
+			font-family:@font2;
+			font-size:1.4em;
+			font-weight:400;
+			text-align:center;
+
+		}
+		.modal-social {
+			
+			margin:10px 0 0 25px;
+			padding-top:5px;
+
+			li {
+				display: inline-block;
+				margin-right:25px;
+				line-height:2.5em;
+				font-size: 1em;
+				vertical-align:middle;
+				color: @wbackground;
+			} 
+	    }
+	}
+
+	//modal-content-wrapper wrapping whole modal content container giving inline-block style for heigh reasons
+	#modal-content-wrapper{
+		
+		display:inline-block;
+		height: calc(~"100vh - 200px");
+		overflow-y:scroll;
+		
+		}
+
+	//solution for giving the grid negative margin for the reasons of fixed social column on the right
+	#modal-content-container{
+		
+		display: inline-block;
+		overflow-y:scroll;
+		overflow-x:hidden;
+		margin-right:0px;
+		padding-right: 0px;
+		height: calc(~"100vh - 200px");
+		
+	}
+
+	//main content container
+	.modal-content{
+		
+		display: inline-block;
+		height: calc(~"100vh - 200px");
+
+	}
+
+
+	.general-info, .about-info {
+		
+		width:100%;
+		display:inline-block;
+		font-family: @font2;
+		padding: 20px 20px;
+		margin:0px;
+
+			h1{
+				font-size:1em;
+				color:@modal-content-h1;
+				margin: 20px 0 20px;
+			}
+
+			h2{
+				font-size:0.8em;
+				color:@modal-content-h2;
+				margin: 5px 0;
+			}
+
+			h3{
+				font-size:0.9em;
+				color:@modal-content-h3;
+				margin: 10px 0;
+
+			}
+
+			p{	
+				font-family: @font1;
+				font-size: 1em;
+				color:@modal-content-p;
+				text-align:justify;
+				margin: 5px 0;
+			}
+
+	}
+
+	.about-info{
+		border-top:@border-style;
+	}
+
+
+	//fixed social box container on the right independable scroll
+	#fixed-social-box{
+		width:100%;
+		height: 100%;
+		float:none;
+		display: inline-block;
+		overflow-x:hidden;
+
+	.article-social{
+		
+		font-family: @font1;
+		min-height:100%;
+		width:100%;
+		padding: 10px 20px;
+		background-color:@article-social-bckg;
+		overflow-y:hidden;
+		border-left: @border-style2;
+		
+		.social{
+			
+			font-family: @font1;
+			width:100%;
+			height:auto;
+			background-color:@wbackground;
+			border-radius: @borderr5;
+			border: 1px solid #E8E7E6;
+			padding:25px;
+			margin: 10px 0;
+
+			img {
+				
+				display:block;
+				width:96%;
+				height:100%;
+				margin: 20px auto;
+				
+			}
+
+			p{
+				font-family: @font1;
+				font-size: 1em;
+				color: @color-p-article;
+				line-height: 1.2em;
+				
+				
+				.blue{
+					color: @color-blue-article;
+					margin:0;
+					}
+				
+				.publish{
+					color: @color-publish-article;
+					font-size:0.9em;
+					line-height:1em;
+					margin-top:10px;
+					
+					}
+
+			}
+		}
+
+		button{
+			font-family:@font2;
+			font-size:0.7em;
+			letter-spacing:2px;
+			padding: 10px 15px;
+			margin: 30px auto;
+			text-transform:uppercase;
+			background-color: #549BCC;
+			color: #fff;
+			border-radius: @borderr5;
+			border:none;
+			display:block;
+		}
+	}
+	}
+
 }
+
+
+
+
+
+
+
+
+

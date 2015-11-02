@@ -15,9 +15,9 @@
     // Define option defaults 
     var defaults = {
       autoOpen: false,
-      closeButton: false,
+      closeButton: true,
       content: "",
-      maxWidth: 85,
+      maxWidth: 100,
       minWidth: 85,
       zIndex: 9999,
       overlay: true
@@ -42,7 +42,6 @@
     this.modal.addEventListener(this.transitionEnd, function() {
       _.modal.parentNode.removeChild(_.modal);
     });
-   
     this.overlay.addEventListener(this.transitionEnd, function() {
       if(_.overlay.parentNode) _.overlay.parentNode.removeChild(_.overlay);
     });
@@ -57,7 +56,7 @@
     window.getComputedStyle(this.modal).height;
     this.modal.className = this.modal.className +
       (this.modal.offsetHeight > window.innerHeight ?
-        " js-modal-open js-modal-anchored" : " js-modal-open");
+        " js-modal-open" : " js-modal-open");
     this.overlay.className = this.overlay.className + " js-modal-open";
     	$('body').css('overflow', 'hidden');
       
