@@ -168,3 +168,4 @@ for(var i = 0; i < triggerButtons.length; i++) {
 $('a.trigger.frame').click(function() {
      return false; // prevent default click action from happening!
 });
+
